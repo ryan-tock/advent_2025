@@ -1,5 +1,7 @@
 import utils
+import time
 
+benchmark_start = time.time()
 data = open("input.txt", 'r').read()
 # data = open("small.txt", 'r').read()
 # data = open("test.txt", 'r').read()
@@ -19,4 +21,6 @@ for line in lines:
 
     if state == 0:
         num_zeros += 1
+
 print(num_zeros)
+print(f"time taken: {(time.time() - benchmark_start):.{4}f}s")
