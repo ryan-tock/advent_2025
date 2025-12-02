@@ -19,7 +19,6 @@ for line in lines:
     else:
         for i in range(int(line[1:])):
             state -= 1
-            state = state + 100
             state = state % 100
             if state == 0:
                 num_zeros += 1

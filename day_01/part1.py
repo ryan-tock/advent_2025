@@ -15,7 +15,6 @@ for line in lines:
     else:
         state -= int(line[1:])
 
-    state += 100
     state = state % 100
 
     if state == 0:
