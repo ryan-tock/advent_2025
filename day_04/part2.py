@@ -16,11 +16,7 @@ def remove_rolls(lines):
         for x in range(len(lines[y])):
             if lines[y][x] == '.':
                 continue
-            neighbors = [(x + i, y + j) for i in range(-1, 2) for j in range(-1, 2)]
-            neighbors = [n for n in neighbors if n != (x, y)]
-            neighbors = [n for n in neighbors if n[0] >= 0 and n[1] >= 0]
-            neighbors = [n for n in neighbors if n[1] < len(lines)]
-            neighbors = [n for n in neighbors if n[0] < len(lines[n[1]])]
+            neighbors = utils.get_neighbors((x, y), len(lines[y]), len(lines))
 
             count = 0
             for neighbor in neighbors:
