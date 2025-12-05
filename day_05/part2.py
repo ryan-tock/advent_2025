@@ -9,18 +9,6 @@ data = open("input.txt", 'r').read()
 ranges_text = data.split("\n\n")[0]
 ingredients = data.split("\n\n")[1]
 
-def parse_range(existing_ranges, start, end):
-    if end <= start:
-        return
-    for r in existing_ranges:
-        if start in r:
-            parse_range(existing_ranges, r.stop, end)
-            return
-        if (end-1) in r:
-            parse_range(existing_ranges, start, r.start)
-            return
-    existing_ranges.append(range(start, end))
-
 ranges = []
 for r in ranges_text.splitlines():
     first = r.split("-")[0]
@@ -28,17 +16,21 @@ for r in ranges_text.splitlines():
 
     ranges.append(range(int(first), int(second) + 1))
 
-ranges.sort(key=lambda r: len(r), reverse=True)
+ranges.sort(key=lambda x: x.start)
 
-trimmed_ranges = []
-for r in ranges:
-    parse_range(trimmed_ranges, r.start, r.stop)
+i=1
+while i < len(ranges):
+    start = ranges[i].start
+    end = ranges[i].stop
+    if start < ranges[i-1].stop:
+        if end-1 < ranges[i-1].stop:
+            ranges.pop(i)
+            i -= 1
+        else:
+            ranges[i] = range(ranges[i - 1].stop, end)
+    i += 1
 
-total = 0
-for r in trimmed_ranges:
-    total += len(r)
-
+total = sum([len(n) for n in ranges])
 print(total)
-
 
 print(f"time taken: {(time.time() - benchmark_start):.{4}f}s")
