@@ -22,7 +22,7 @@ for bank in lines:
         i = bank.index(digit)
         if len(bank) - i >= digits_remaining:
             working_jolts += bank[i]
-            bank = bank[i+1:]
+            bank = bank[i + 1 :]
             remaining_digits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
             digits_remaining -= 1
         else:

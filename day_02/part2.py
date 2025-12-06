@@ -7,11 +7,11 @@ data = utils.fetch_input(day=2)
 benchmark_start = time.time()
 
 data = "".join(data.split("\n"))
-ranges = data.split(',')
+ranges = data.split(",")
 
 total = 0
 for r in ranges:
-    start, end = r.split('-')
+    start, end = r.split("-")
 
     found = set()
 

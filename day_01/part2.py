@@ -13,7 +13,7 @@ state = 50
 
 for line in lines:
     for i in range(int(line[1:])):
-        state += 1 if line[0] == 'R' else -1
+        state += 1 if line[0] == "R" else -1
         state = state % 100
         if state == 0:
             num_zeros += 1

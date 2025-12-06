@@ -8,29 +8,30 @@ benchmark_start = time.time()
 
 lines = data.splitlines()
 
+
 def remove_rolls(lines):
     total = 0
     removed = []
 
     for y in range(len(lines)):
         for x in range(len(lines[y])):
-            if lines[y][x] == '.':
+            if lines[y][x] == ".":
                 continue
             neighbors = utils.get_neighbors((x, y), len(lines[y]), len(lines))
 
             count = 0
             for neighbor in neighbors:
-                if lines[neighbor[1]][neighbor[0]] == '@':
+                if lines[neighbor[1]][neighbor[0]] == "@":
                     count += 1
 
             if count < 4:
-                removed.append((x,y))
+                removed.append((x, y))
                 total += 1
 
     for square in removed:
         line = list(lines[square[1]])
-        line[square[0]] = '.'
-        lines[square[1]] = ''.join(line)
+        line[square[0]] = "."
+        lines[square[1]] = "".join(line)
     return total
 
 

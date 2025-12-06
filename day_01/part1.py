@@ -12,7 +12,7 @@ num_zeros = 0
 state = 50
 
 for line in lines:
-    if line[0] == 'R':
+    if line[0] == "R":
         state += int(line[1:])
     else:
         state -= int(line[1:])

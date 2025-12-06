@@ -18,12 +18,12 @@ for r in ranges_text.splitlines():
 
 ranges.sort(key=lambda x: x.start)
 
-i=1
+i = 1
 while i < len(ranges):
     start = ranges[i].start
     end = ranges[i].stop
-    if start < ranges[i-1].stop:
-        if end-1 < ranges[i-1].stop:
+    if start < ranges[i - 1].stop:
+        if end - 1 < ranges[i - 1].stop:
             ranges.pop(i)
             i -= 1
         else:
