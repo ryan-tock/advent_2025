@@ -60,7 +60,7 @@ def fetch_small(day):
 def fetch_test(day):
     day_str = "%02d" % (day,)
     day_path = os.path.join(Path(__file__).parent, f"day_{day_str}")
-    input_file = open(os.path.join(day_path, "input.txt"), 'r')
+    input_file = open(os.path.join(day_path, "test.txt"), 'r')
     input_data = input_file.read()
     input_file.close()
 
