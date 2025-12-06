@@ -1,11 +1,12 @@
 import utils
 import time
 
+data = utils.fetch_input(2)
+# data = utils.fetch_small(2)
+# data = utils.fetch_test(2)
 benchmark_start = time.time()
-data = open("input.txt", 'r').read()
-# data = open("small.txt", 'r').read()
-# data = open("test.txt", 'r').read()
 
+data = "".join(data.split("\n"))
 ranges = data.split(',')
 
 total = 0

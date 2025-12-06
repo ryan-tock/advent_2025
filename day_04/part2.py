@@ -1,10 +1,10 @@
 import utils
 import time
 
+data = utils.fetch_input(4)
+# data = utils.fetch_small(4)
+# data = utils.fetch_test(4)
 benchmark_start = time.time()
-data = open("input.txt", 'r').read()
-# data = open("small.txt", 'r').read()
-# data = open("test.txt", 'r').read()
 
 lines = data.splitlines()
 

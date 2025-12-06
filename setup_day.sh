@@ -8,14 +8,16 @@ touch "${DIR_NAME}/test.txt"
 touch "${DIR_NAME}/part1.py"
 touch "${DIR_NAME}/part2.py"
 
-cat <<'EOF' > "${DIR_NAME}/part1.py"
+cat <<EOF > "${DIR_NAME}/part1.py"
 import utils
 import time
 
 benchmark_start = time.time()
-data = open("input.txt", 'r').read()
-# data = open("small.txt", 'r').read()
-# data = open("test.txt", 'r').read()
+data = utils.fetch_input(${1##0})
+# data = utils.fetch_small(${1##0})
+# data = utils.fetch_test(${1##0})
+
+lines = data.splitlines()
 
 print(f"time taken: {(time.time() - benchmark_start):.{4}f}s")
 EOF

@@ -1,10 +1,10 @@
 import utils
 import time
 
+data = utils.fetch_input(5)
+# data = utils.fetch_small(5)
+# data = utils.fetch_test(5)
 benchmark_start = time.time()
-data = open("input.txt", 'r').read()
-# data = open("small.txt", 'r').read()
-# data = open("test.txt", 'r').read()
 
 ranges_text = data.split("\n\n")[0]
 ingredients = data.split("\n\n")[1]
