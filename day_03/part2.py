@@ -1,9 +1,9 @@
 import utils
 import time
 
-data = utils.fetch_input(3)
-# data = utils.fetch_small(3)
-# data = utils.fetch_test(3)
+data = utils.fetch_input(day=3)
+# data = utils.fetch_small(day=3)
+# data = utils.fetch_test(day=3)
 benchmark_start = time.time()
 
 lines = data.splitlines()
