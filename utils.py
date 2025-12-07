@@ -20,6 +20,7 @@ def fetch_input(day):
     day_path = os.path.join(Path(__file__).parent, f"day_{day_str}")
     input_file = open(os.path.join(day_path, "input.txt"), "r")
     input_data = input_file.read()
+    input_file.close()
 
     if input_data != "":
         return input_data
@@ -36,7 +37,6 @@ def fetch_input(day):
         return ""
 
     data = "\n".join(response.text.split("\n")[:-1])
-    input_file.close()
     input_file = open(os.path.join(day_path, "input.txt"), "w")
     input_file.write(data)
     input_file.close()
@@ -49,6 +49,7 @@ def fetch_small(day):
     day_path = os.path.join(Path(__file__).parent, f"day_{day_str}")
     input_file = open(os.path.join(day_path, "small.txt"), "r")
     input_data = input_file.read()
+    input_file.close()
 
     if input_data != "":
         return input_data
@@ -67,7 +68,6 @@ def fetch_small(day):
     data = response.text.split("<pre><code>")[1].split("</code></pre>")[0]
     if data[-1] == "\n":
         data = data[:-1]
-    input_file.close()
     input_file = open(os.path.join(day_path, "small.txt"), "w")
     input_file.write(data)
     input_file.close()
