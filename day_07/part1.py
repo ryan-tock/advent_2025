@@ -12,21 +12,19 @@ start = lines[0].index("S")
 
 total = 0
 line = 0
-beams = {(0, start)}
+beams = {start}
 
 while line < len(grid):
     new_beams = set()
-    for row, col in beams:
-        if grid[row][col] == "^":
+    for col in beams:
+        if grid[line][col] == "^":
             total += 1
-            new_beams.add((row, col + 1))
-            new_beams.add((row, col - 1))
+            new_beams.add(col + 1)
+            new_beams.add(col - 1)
         else:
-            new_beams.add((row, col))
+            new_beams.add(col)
 
     beams = new_beams
-    beams = {(row + 1, col) for row, col in beams}
-
     line += 1
 
 print(total)
